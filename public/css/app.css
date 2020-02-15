@@ -1,0 +1,36 @@
+
+    .buttonpassword{
+        border: none;
+        position: absolute;
+        right: 1.5px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        text-decoration: line;
+        filter: grayscale(60%);
+        cursor: pointer;
+        
+    }
+    .buttonpassword2{
+        border: none;
+        position: absolute;
+        right: 1px;
+        top: 54%;
+        transform: translate(-50%, -50%);
+        text-decoration: line;
+        filter: grayscale(60%);
+        cursor: pointer;
+        
+    }
+
+    #traitDiag {
+        right: 25px;
+        top: 45%;
+        border: 1px solid #17a2b8;
+        width: 22px;
+        position: absolute;
+        border-radius: 22%;
+        transform: rotate(45deg);
+        filter: grayscale(60%);
+        display: none;
+    }
+

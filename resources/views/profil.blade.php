@@ -41,7 +41,7 @@
         
             @forelse ($userurl->posts()->get() as $tweet)
           
-            <div class="mt-3  border col-12 d-flex justify-content-start align-items-center " style=" height: 80px; border-radius: 22px #665A5C;box-shadow: 4px 2px 4px #665A5C;">
+            <div class="mt-3  border col-12 d-flex justify-content-start align-items-center " style=" min-height: 80px; border-radius: 22px #665A5C;box-shadow: 4px 2px 4px #665A5C;">
    
             <div class="container">
                     <strong class="">@ {{ $userurl->username  }} - {{ $tweet->created_at->diffForHumans() }}</strong>

@@ -138,7 +138,7 @@
                     </a>
                     @else
                     <a href="{{ url('/unfollows/' . $userurl->username) }}" class="navbar-btn navbar-right">
-                        <button type="button" class="btn btn-default text-info">Unfollow</button>
+                        <button type="button" class="btn btn-default text-danger">Unfollow</button>
                     </a>
                     @endif
                 @endif

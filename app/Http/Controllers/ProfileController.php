@@ -33,6 +33,7 @@ class ProfileController extends Controller
                 'is_following' => $is_following,
                  'list' => $list,
                  'usersall' => $usersall,
+                 'me' => $me,
                 ]);
         }
        else{

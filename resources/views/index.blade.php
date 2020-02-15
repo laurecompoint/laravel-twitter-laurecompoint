@@ -8,13 +8,16 @@ confirm("Vraiment ?");
 if(Check == false) history.back();
 }
 </script>
+
 <div class="w-75 m-auto">
 <div class="row d-flex justify-content-between "  style="height:900px;">
 
 <div class="col-6" >
 
-
-
+<a href="twitter-user">
+  <button type="button" class="btn btn-info text-white " style="width: 18rem;">Voir tous les User</button>
+</a>
+                   
 
 
 <div class="card border-info mt-3" style="width: 18rem;">

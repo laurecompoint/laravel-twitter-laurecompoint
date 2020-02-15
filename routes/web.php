@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/{username}/following', 'ProfileController@following')->name('following');
     Route::get('/follows/{username}', 'UserController@follows');
     Route::get('/unfollows/{username}', 'UserController@unfollows');
+    Route::get('/twitter-user', 'UserController@index');
 });
 Route::get('/{username}', 'ProfileController@show')->name('profile');
 Route::get('/{username}/followers', 'ProfileController@followers')->name('followers');

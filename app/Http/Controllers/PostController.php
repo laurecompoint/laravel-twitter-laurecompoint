@@ -21,13 +21,16 @@ class PostController extends Controller
         $posts = $post->orderBy('id', 'DESC')->paginate(4);
         //dd($posts);
 
-        $users = $user->orderBy('id', 'DESC')->paginate(2);
+        $usersall = $user->orderBy('id', 'DESC')->paginate(2);
        
         if (Auth::check()) {
            
             return view('index', [
                 'user' => Auth::user(),
+                
                 ]);
+
+               
         }
         else{
             return view('welcome');

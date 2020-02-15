@@ -7,12 +7,25 @@ use App\User;
 
 class UserController extends Controller
 {
-    // app/Http/Controllers/UserController.php
+
+public function index(User $user){
+    $usersall = $user->orderBy('id', 'DESC')->paginate(2);
+    if (Auth::check()) {
+        return view('/userall')->with([
+            'usersall' => $usersall,
+        ]);
+    }
+    else{
+        return view('welcome');
+    }
+  
+}
+    
 public function follows($username)
 {
-    // Find the User. Redirect if the User doesn't exist
+    
     $user = User::where('username', $username)->firstOrFail();
-// Find logged in User
+
     $id = Auth::id();
     $me = User::find($id);
     $me->following()->attach($user->id);
@@ -20,9 +33,9 @@ public function follows($username)
 }
 public function unfollows($username)
 {
-    // Find the User. Redirect if the User doesn't exist
+   
     $user = User::where('username', $username)->firstOrFail();
-// Find logged in User
+
     $id = Auth::id();
     $me = User::find($id);
     $me->following()->detach($user->id);

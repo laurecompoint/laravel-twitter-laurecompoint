@@ -55,7 +55,7 @@
 
             <div class="content">
                 <div class="title">
-                   <img src="img/404.png" class="w-50"/>
+                   <img src="/img/404.png" class="w-50"/>
                 </div>
                 <div class="links">
                     <a href="{{ url('/') }}">Click to Home</a>

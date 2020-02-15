@@ -15,18 +15,19 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Post $post, User $user)
+    public function index()
     {
         //$posts = $post->user()->orderBy('id', 'DESC')->paginate(2);
-        $posts = $post->orderBy('id', 'DESC')->paginate(4);
+       // $posts = $post->orderBy('id', 'DESC')->paginate(4);
         //dd($posts);
-
-        $usersall = $user->orderBy('id', 'DESC')->paginate(2);
        
+        
+        $userurl = User::where('id', Auth::user()->id)->firstOrFail();
         if (Auth::check()) {
            
             return view('index', [
                 'user' => Auth::user(),
+                'userurl' => $userurl,
                 
                 ]);
 

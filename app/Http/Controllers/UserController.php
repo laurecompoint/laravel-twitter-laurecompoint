@@ -9,7 +9,7 @@ class UserController extends Controller
 {
 
 public function index(User $user){
-    $usersall = $user->orderBy('id', 'DESC')->paginate(2);
+    $usersall = $user->get();
     if (Auth::check()) {
         return view('/userall')->with([
             'usersall' => $usersall,

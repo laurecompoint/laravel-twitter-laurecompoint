@@ -93,7 +93,7 @@ class AccountController extends Controller
        $user->name = $request->name;
        $user->username = $request->username;
        $user->email = $request->email;
-       $user->password = $request->password;
+       $user->password = Hash::make($request->password);
        $user->save();
         return redirect()->back()->with('alertupdate', "User name :   $user->name  à bien été mis à jour" );
         

@@ -11,7 +11,7 @@ class ProfileController extends Controller
     {
         $me = Auth::user();
         $userurl = User::where('username', $username)->firstOrFail();
-        $usersall = $user->orderBy('id', 'DESC')->paginate(2);
+        $usersall = $user->orderBy('id', 'DESC')->paginate(4);
         $followers_count = $userurl->followers()->count();
         $following_count = $me->following()->count();
         $following_tweet = $userurl->posts()->get()->count();
@@ -49,7 +49,7 @@ class ProfileController extends Controller
     if (Auth::check()) {
         $me = Auth::user();
         $userurl = User::where('username', $username)->firstOrFail();
-        $usersall = $user->orderBy('id', 'DESC')->paginate(2);
+        $usersall = $user->orderBy('id', 'DESC')->paginate(4);
         $following_tweet = $userurl->posts()->get()->count();
         $followers_count = $userurl->followers()->count();
         $following_count = $me->following()->count();
@@ -82,7 +82,7 @@ public function followers($username, User $user)
       
         $me = Auth::user();
         $userurl = User::where('username', $username)->firstOrFail();
-        $usersall = $user->orderBy('id', 'DESC')->paginate(2);
+        $usersall = $user->orderBy('id', 'DESC')->paginate(4);
         $followers_count =  $userurl->followers()->count();
         $following_count = $me->following()->count();
         $following_tweet = $userurl->posts()->get()->count();

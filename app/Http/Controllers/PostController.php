@@ -48,16 +48,16 @@ class PostController extends Controller
     public function create(Post $post, Request $request)
     {
         $validate = $request->validate([
-            'name' => 'required',
+            'tweet' => 'required',
         
         ]);
         $post = new Post;
-        $post->name = $request->name;
+        $post->tweet = $request->tweet;
         $post->user_id = $request->user_id;
        
         if (Auth::check()) {
             $post->save();
-            return redirect()->back()->with('alertcreate', "Le tweet  :   $post->name  à bien été crée" );
+            return redirect()->back()->with('alertcreate', "Le tweet  :   $post->tweet  à bien été crée" );
         }
       
      

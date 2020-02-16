@@ -28,21 +28,18 @@ class User extends Authenticatable
     }
     public function timeline(){
         $following = $this->following()->with(['posts' => function ($query) {
-            $query->orderBy('created_at', 'desc');
+            $query->orderBy('id', 'desc'); 
+            $query->paginate(10);
         }])->get();
-    // By default, the tweets will group by user.
-    // [User1 => [Tweet1, Tweet2], User2 => [Tweet1]]
-    //
-    // The timeline needs the tweets without grouping.
-    // Flatten the collection.
-    $timeline = $following->flatMap(function ($values) {
-        return $values->posts;
-    });
-    // Sort descending by the creation date
-    $sorted = $timeline->sortByDesc(function ($post) {
-        return $post->created_at;
-    });
-    return $timeline;
+    
+        $timeline = $following->flatMap(function ($values) {
+            return $values->posts;
+        });
+    
+        $sorted = $timeline->sortByDesc(function ($post) {
+            return $post->created_at;
+        });
+        return $timeline;
     }
     use Notifiable;
 

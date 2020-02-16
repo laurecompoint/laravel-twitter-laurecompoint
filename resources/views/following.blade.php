@@ -31,7 +31,7 @@
                 </div>
 
                 
-                 <a href="" class="float-right mr-4 mt-3">Voir plus</a>   
+                 <a href="twitter-user" class="float-right mr-4 mt-3">Voir plus</a>   
                 </div>
         </div>
         <div class="col-md-8 col-md-offset-2 row mt-5 d-flex flex-wrap">

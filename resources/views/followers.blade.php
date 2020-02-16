@@ -33,7 +33,7 @@
                 </div>
 
                 
-                 <a href="" class="float-right mr-4 mt-3">Voir plus</a>   
+                 <a href="twitter-user" class="float-right mr-4 mt-3">Voir plus</a>   
                 </div>
         </div>
         <div class="col-md-8 col-md-offset-2 row mt-5 d-flex flex-wrap">
@@ -45,7 +45,7 @@
                     <div class="bg-white border  mt-2 w-25 ml-2" style="height: 150px;  background: url('/img/{{ $followers->avatar }}') no-repeat;  background-size: cover;  border-radius: 22px #665A5C;box-shadow: 4px 2px 4px #665A5C;">
                    
                         <a href="{{ url('/' . $followers->username) }}" class="text-info">
-                            <h4 class="list-group-item-heading">{{ $followers->name }}</h4>
+                            <h4 class="list-group-item-heading">{{ $followers->tweet }}</h4>
                             <small class="list-group-item-text">@ {{ $followers->username }}</small>
                         </a>
                    

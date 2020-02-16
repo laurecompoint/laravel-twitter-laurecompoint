@@ -25,7 +25,7 @@ if(Check == false) history.back();
   <div class="card-body">
   <form method="post" action="{{route('posts.create')}}">
     <input name="user_id" type="hidden" class="form-control" value="{{ Auth::user()->id }}" > 
-    <textarea name="name" class="form-control" aria-label="With textarea"></textarea>
+    <textarea name="tweet" class="form-control" aria-label="With textarea"></textarea>
     {{csrf_field()}}
     <button type="summit" class="btn btn-info mt-3 col-12">Tweet</button>
   </form>
@@ -68,7 +68,7 @@ if(Check == false) history.back();
   
   <div class="col-6">
         <p>{{$tweet->user->username}} - {{$tweet->created_at->diffForHumans()}}</p> 
-        <p class="card-title">{{ $tweet->name }}</p> 
+        <p class="card-title">{{ $tweet->tweet }}</p> 
        
   </div>
 
@@ -86,7 +86,7 @@ if(Check == false) history.back();
  
   @empty
 
-  <div class="mt-3 text-center border col-12 d-flex flex-column justify-content-center align-items-center align-content-center" style="  border-radius: 22px #665A5C;box-shadow: 4px -2px 4px #665A5C;">
+  <div class="mt-3 text-center border col-12 d-flex flex-column justify-content-center align-items-center align-content-center" style="  border-radius: 22px #665A5C;box-shadow: 2px 4px 4px #665A5C;">
    
    <h5 class="mt-5">Your dont have tweet from your following...</h5>
    <img src="/img/notweet.png" class="w-50">
@@ -111,7 +111,7 @@ if(Check == false) history.back();
 
     <div class="col-6">
           <p>{{$tweet->user->username}} -  {{$tweet->created_at->diffForHumans()}}</p> 
-          <p class="card-title">{{ $tweet->name }}</p> 
+          <p class="card-title">{{ $tweet->tweet }}</p> 
         
     </div>
 
@@ -134,7 +134,7 @@ if(Check == false) history.back();
             </button>
           </div>
           <div class="modal-body">
-          <h6>Etes vous sur de vouloir suprimer ce tweet : " {{$tweet->name}} " ?</h6>
+          <h6>Etes vous sur de vouloir suprimer ce tweet : " {{$tweet->tweet}} " ?</h6>
 
           </div>
           <div class="modal-footer">
@@ -152,7 +152,7 @@ if(Check == false) history.back();
 
           
             @empty
-            <div class="mt-3 text-center border col-12 d-flex flex-column justify-content-center align-items-center align-content-center" style="  border-radius: 22px #665A5C;box-shadow: 4px -2px 4px #665A5C;">
+            <div class="mt-3 text-center border col-12 d-flex flex-column justify-content-center align-items-center align-content-center" style="  border-radius: 22px #665A5C;box-shadow: 2px 4px 4px #665A5C;">
    
                  <h5 class="mt-5">No tweet from you...</h5>
                  <img src="/img/notweet.png" class="w-50">
@@ -162,7 +162,7 @@ if(Check == false) history.back();
             @endforelse
 
   
-
+           
 
 </div>
 <button type="summit" class="btn btn-info mt-3 col-12">Show More</button>

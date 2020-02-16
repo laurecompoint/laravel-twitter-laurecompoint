@@ -35,7 +35,7 @@
                 </div>
 
                 
-                 <a href="" class="float-right mr-4 mt-3">Voir plus</a>   
+                 <a href="twitter-user" class="float-right mr-4 mt-3">Voir plus</a>   
                 </div>
         </div>
         <div class="col-md-8 col-md-offset-2 mt-5">
@@ -53,7 +53,7 @@
    
             <div class="container">
                     <strong class="">@ {{ $userurl->username  }} - {{ $tweet->created_at->diffForHumans() }}</strong>
-                    <p class="lead">{{ $tweet->name }}</p>
+                    <p class="lead">{{ $tweet->tweet }}</p>
                 </div>
 
             </div>

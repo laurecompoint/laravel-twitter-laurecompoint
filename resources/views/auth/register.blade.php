@@ -58,9 +58,9 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                <button class="buttonpassword" type="button" onclick="unmask()"
-                                    title="Mask/Unmask password to check content"><i class='fas fa-eye' style='font-size:18px;color:#17a2b8;'></i></button>
-                                <div id="traitDiag"></div>
+                                <button class="buttonpassword" type="button" onclick="iconpassword()"
+                                    ><i class='fas fa-eye' id="icon-password" style='font-size:18px;color:#17a2b8;'></i></button>
+                                <div id="icon-vuelogin" onclick="iconpassword()"><i class='fas fa-eye-slash' style='font-size:18px;color:#17a2b8;'></i></div>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -75,9 +75,7 @@
                           
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                <button class="buttonpassword2" type="button" onclick="unmask()"
-                                    title="Mask/Unmask password to check content"><i class='fas fa-eye' style='font-size:18px;color:#17a2b8;'></i></button>
-                                <div id="traitDiag"></div>
+                              
                             </div>
                         </div>
 

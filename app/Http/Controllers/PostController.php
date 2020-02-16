@@ -22,9 +22,9 @@ class PostController extends Controller
         //dd($posts);
        
         
-        $userurl = User::where('id', Auth::user()->id)->firstOrFail();
+       
         if (Auth::check()) {
-           
+            $userurl = User::where('id', Auth::user()->id)->firstOrFail();
             return view('index', [
                 'user' => Auth::user(),
                 'userurl' => $userurl,

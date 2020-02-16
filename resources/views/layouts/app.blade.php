@@ -79,6 +79,9 @@
                                     </form>
                                 </div>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ URL::previous() }}"><i class='fas fa-arrow-left text-info' style='font-size:24px;'></i></a>
+                            </li>
                         @endguest
                     </ul>
                 </div>

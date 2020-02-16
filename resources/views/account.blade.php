@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-info"> <h2>{{ $user->name }}'s Account</h2></div>
+                <div class="card-header bg-info text-white"> <h2>{{ $user->name }}'s Account</h2></div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -57,7 +57,7 @@
                     <label>Name</label>
                     <input name="name" value="{{ Auth::user()->name }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
-                <div class="form-group col-6">
+                <div class="form-group col-6 mt-2">
                     <label for="exampleInputEmail1">User name</label>
                     <input name="username" value="{{ Auth::user()->username }}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
                 </div>
@@ -69,11 +69,13 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
-                    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-                    <button class="buttonpassword" type="button" onclick="unmask()"
-                                    title="Mask/Unmask password to check content"><i class='fas fa-eye' style='font-size:18px;color:#17a2b8;'></i></button>
-                                <div id="traitDiag"></div>
+                   
+                    <input id="password" type="password" name="password" class="form-control">
+                    <button class="buttonpassword3" type="button" onclick="unmask()"
+                                    title="Mask/Unmask password to check content"><i class='fas fa-eye' id="icon-password" style='font-size:18px;color:#17a2b8;'></i></button>
+                                <div id="icon-vue" onclick="unmask()"><i class='fas fa-eye-slash' style='font-size:18px;color:#17a2b8;'></i></div>
                 </div>
+              
                 {{csrf_field()}}
                 <button type="summit" class="btn btn-info mt-3 mb-3 col-12">Save</button>
                 </form>

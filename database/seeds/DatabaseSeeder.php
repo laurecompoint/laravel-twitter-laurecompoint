@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
-use App\Post;
+
 
 
 class DatabaseSeeder extends Seeder
@@ -16,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
       
         $this->call(PostsTableSeeder::class);
+        $this->call(FollowersTableSeeder::class);
         $this->call(UsersTableSeeder::class);
     
     }

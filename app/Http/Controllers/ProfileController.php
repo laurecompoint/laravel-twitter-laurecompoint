@@ -9,15 +9,15 @@ class ProfileController extends Controller
 {
     public function show($username, User $user)
     {
-        $me = Auth::user();
-        $userurl = User::where('username', $username)->firstOrFail();
-        $usersall = $user->orderBy('id', 'DESC')->paginate(4);
-        $followers_count = $userurl->followers()->count();
-        $following_count = $me->following()->count();
-        $following_tweet = $userurl->posts()->get()->count();
+        
         if (Auth::check()) {
             
-           
+            $me = Auth::user();
+            $userurl = User::where('username', $username)->firstOrFail();
+            $usersall = $user->orderBy('id', 'DESC')->paginate(4);
+            $followers_count = $userurl->followers()->count();
+            $following_count = $me->following()->count();
+            $following_tweet = $userurl->posts()->get()->count();
             $list = $me->following()->orderBy('username')->get();
             $is_edit_profile = false;
             $is_following = false;

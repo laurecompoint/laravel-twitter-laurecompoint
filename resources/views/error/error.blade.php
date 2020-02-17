@@ -58,7 +58,7 @@
                    <img src="/img/404.png" class="w-50"/>
                 </div>
                 <div class="links">
-                    <a href="{{ url('/') }}">Click to Home</a>
+                    <a href="{{ url('/') }}" class="text-info" style="color: #17a2b8; font-size: 20px">Click to Home</a>
                 </div>
             </div>
         </div>

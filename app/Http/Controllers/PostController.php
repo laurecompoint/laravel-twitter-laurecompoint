@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Post;
+use App\Follower;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -24,10 +25,9 @@ class PostController extends Controller
         
        
         if (Auth::check()) {
-            $userurl = User::where('id', Auth::user()->id)->firstOrFail();
+           
             return view('index', [
                 'user' => Auth::user(),
-                'userurl' => $userurl,
                 
                 ]);
 
@@ -45,7 +45,7 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Post $post, Request $request)
+    public function create(Post $post, Follower $follower , Request $request)
     {
         $validate = $request->validate([
             'tweet' => 'required',
@@ -54,14 +54,22 @@ class PostController extends Controller
         $post = new Post;
         $post->tweet = $request->tweet;
         $post->user_id = $request->user_id;
-       
-        if (Auth::check()) {
-            $post->save();
-            return redirect()->back()->with('alertcreate', "Le tweet  :   $post->tweet  à bien été crée" );
-        }
-      
-     
 
+        if (Auth::check()) {
+
+            $post->save();
+
+            if( !$follower->where('user_id', Auth::user()->id)->update([  'user_id'  =>    Auth::user()->id, 'follower_user_id'  =>  Auth::user()->id ])){
+                $follower = new Follower;
+                $follower->follower_user_id = Auth::user()->id;
+                $follower->user_id = Auth::user()->id;
+                $follower->save();
+            }else{
+                $follower->where('user_id', Auth::user()->id)->update([  'user_id'  =>    Auth::user()->id, 'follower_user_id'  =>  Auth::user()->id ]);
+            }
+          
+           return redirect()->back()->with('alertcreate', "Le tweet  :   $post->tweet  à bien été crée" );
+        }
         
     }
 

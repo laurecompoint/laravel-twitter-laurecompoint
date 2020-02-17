@@ -29,7 +29,7 @@ class User extends Authenticatable
     public function timeline(){
         $following = $this->following()->with(['posts' => function ($query) {
             $query->orderBy('id', 'desc'); 
-            $query->paginate(5);
+            $query->paginate(7);
         }])->get();
     
         $timeline = $following->flatMap(function ($values) {

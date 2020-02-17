@@ -3,10 +3,16 @@
 @section('content')
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <SCRIPT language="JavaScript">
-function delete_confirm()
+function moretweet()
 {
-confirm("Vraiment ?");
-if(Check == false) history.back();
+  var CheminComplet = document.location.href;
+  
+  if(CheminComplet = 'twitter'){
+    var page2 = 2;
+    var url2 = '/twitter' + (page2 > 1 ? '?page=' + page2 : '');
+    document.location.href= " " + url2; 
+  }
+  
 }
 </script>
 
@@ -165,8 +171,10 @@ if(Check == false) history.back();
            
 
 </div>
-<button type="summit" class="btn btn-info mt-3 col-12">Show More</button>
 
+<a  onclick="moretweet()">
+<button type="summit" class="btn btn-info mt-3 col-12">Show More</button>
+</a>
 </div>
 </div>
 </div>

@@ -41,12 +41,14 @@
         
                     @forelse ($list as $following)
                     <div class="bg-white border  mt-2 w-25 ml-2" style="height: 150px;  background: url('/img/{{ $following->avatar }}') no-repeat;  background-size: cover;  border-radius: 22px #665A5C;box-shadow: 4px 2px 4px #665A5C;">
-                   
-                        <a href="{{ url('/' . $following->username) }}" class="text-info">
+                   <div class="row">
+                        <a href="{{ url('/' . $following->username) }}" class="text-info col-6">
                             <h4 class="list-group-item-heading">{{ $following->name }}</h4>
                             <small class="list-group-item-text">@ {{ $following->username }}</small>
+                          
                         </a>
-                   
+                        <small class="list-group-item-text text-info col-6">{{ $following->created_at->diffForHumans() }}</small>
+                    </div>
                     </div>
                     @empty
                     <div class="mt-3 text-center border col-12 d-flex flex-column justify-content-center align-items-center align-content-center" style="  border-radius: 22px #665A5C;box-shadow: 4px -2px 4px #665A5C;">

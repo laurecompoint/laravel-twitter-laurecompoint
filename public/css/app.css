@@ -51,6 +51,12 @@
         display: none;
         cursor: pointer;
     }
+    .positiondelteavatar{
+        position: absolute;
+        top: 215px;
+        right: 385px;
+
+    }
   
    
 

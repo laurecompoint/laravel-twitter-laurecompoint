@@ -76,10 +76,10 @@
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
-                                    <a class="dropdown-item" href="account">
+                                    <a class="dropdown-item" href="/account">
                                         Account
                                     </a>
-                                    <a class="dropdown-item" href="{{ Auth::user()->username }}">
+                                    <a class="dropdown-item" href="/{{ Auth::user()->username }}">
                                         Profil
                                     </a>
                                    

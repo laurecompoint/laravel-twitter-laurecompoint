@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<SCRIPT language="JavaScript">
+
+<script type="text/javascript">
 function moretweet()
 {
   var CheminComplet = document.location.href;
@@ -14,7 +14,15 @@ function moretweet()
   }
   
 }
+
+
 </script>
+<style>
+  
+  
+
+
+</style>
 
 <div class="w-75 m-auto">
 <div class="row d-flex justify-content-between "  style="height:900px;">
@@ -22,7 +30,7 @@ function moretweet()
 <div class="col-6" >
 
       <a href="twitter-user">
-        <button type="button" class="btn btn-info text-white " style="width: 18rem;">Voir tous les User</button>
+        <button type="button" class="btn btn-info text-white " style="width: 18rem;">Voir user que vous pouvez suivre</button>
       </a>
                         
 
@@ -31,7 +39,8 @@ function moretweet()
         <div class="card-body">
         <form method="post" action="{{route('posts.create')}}">
           <input name="user_id" type="hidden" class="form-control" value="{{ Auth::user()->id }}" > 
-          <textarea name="tweet" class="form-control" aria-label="With textarea"></textarea>
+          <textarea name="tweet"  data-emojiable="true" id="example"  class="form-control emojionearea-editor" aria-label="With textarea"></textarea>
+         
           {{csrf_field()}}
           <button type="summit" class="btn btn-info mt-3 col-12">Tweet</button>
         </form>
@@ -70,7 +79,7 @@ function moretweet()
       </div>
       
       <div class="col-6">
-            <p>{{$tweet->user->username}} - {{$tweet->created_at->diffForHumans()}}</p> 
+            <p><a href="{{$tweet->user->username}}" class="text-dark"> {{$tweet->user->username}}</a> - {{$tweet->created_at->diffForHumans()}}</p> 
             <p class="card-title">{{ $tweet->tweet }}</p> 
           
       </div>

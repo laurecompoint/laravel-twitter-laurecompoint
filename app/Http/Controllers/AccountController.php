@@ -6,8 +6,9 @@ use App\Http\Requests;
 use App\Account;
 use Image;
 use Auth;
+use App\User;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Hash;
 class AccountController extends Controller
 {
     /**
@@ -50,7 +51,14 @@ class AccountController extends Controller
      */
     public function show(Account $account)
     {
-        return view('account', ['user' => Auth::user()] );
+        if (Auth::check()) {
+            
+            return view('account', ['user' => Auth::user()] );
+        }
+        else{
+            return view('welcome');
+        }
+      
     }
 
     /**
@@ -77,7 +85,7 @@ class AccountController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'username' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
-            'password' => ['required', 'string', 'min:8'],
+
         ]);
       
 
@@ -99,14 +107,24 @@ class AccountController extends Controller
         
     }
 
+    public function destroyavatar(Account $account, User $user)
+    {
+        $user->where('avatar', Auth::user()->avatar)->update([  'avatar'  =>    'avatar.png']);
+        return redirect()->back()->with('alertdeleteavatar', "Votre avatar à bien été suprime et remplacer par celui par défaut" );
+    }
+    
+
     /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Account  $account
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Account $account)
+    public function destroy(Account $account, User $user)
     {
-        //
+        $user = User::find(Auth::user()->id);
+        $user->delete();
+        //return redirect('home/dashboard');
+        return redirect('twitter');
     }
 }

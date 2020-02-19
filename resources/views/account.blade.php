@@ -1,22 +1,31 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
                 
                
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-info text-white"> <h2>{{ $user->name }}'s Account</h2></div>
-
+                <div class="card-header bg-info text-white"> 
+                <div class="row">
+                <h2>{{ $user->name }}'s Account</h2>
+                <button type="button" class="btn btn-danger"  style="opacity: 0.90; margin-left: 150px" data-toggle="modal" data-target="#exampleModal2">
+                 Suprimer votre compte
+                </button>
+                </div>
+               
+                
+                </div>
+              
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    You are logged in!
+                   
 
                  
                 </div>
@@ -35,6 +44,13 @@
                     {{ session('alertupdate') }}
                 </div>
                 @endif
+                @if (session('alertdeleteavatar'))
+                <div class="alert alert-success  h-100 col-12">
+                    {{ session('alertdeleteavatar') }}
+                </div>
+                @endif
+                
+               
                 </div>              
                 <form class="col-12" enctype="multipart/form-data" method="post" action="{{route('account.update')}}">
                
@@ -45,11 +61,16 @@
                     <div class="col-md-10 col-md-offset-1">
                         <img src="img/{{ $user->avatar }}" style="width:150px; height:150px; float:left; margin-right:25px;">
                        
-                            <label>Update Profile Image</label>
-                            <input type="file" name="avatar">
+                            <label class="text-success">Update Profile Avatar : </label>
+                            <input type="file" name="avatar" value="avatar.png">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                            
-                       
+                            
+                            <button type="button" class="btn text-danger mt-2"  style="opacity: 0.90; margin-left: -15px" data-toggle="modal" data-target="#exampleModal">
+                                Suprimer votre avatar
+                             </button>
+                             
+                          
                     </div>
                 </div>
                 <div class="row">
@@ -79,7 +100,61 @@
                 {{csrf_field()}}
                 <button type="summit" class="btn btn-info mt-3 mb-3 col-12">Save</button>
                 </form>
-            </div>
+               
+                <div class="modal fade " id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Supression alerte ?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            <h6>Etes vous sur de vouloir suprimer votre compte ?</h6>
+                        
+                            </div>
+                            <div class="modal-footer">
+                            
+                            <form method="post" action="{{route('compte.destroyuser')}}" >
+                        
+                                {{csrf_field()}}
+                                <button class="btn text-white"   style="opacity: 0.90;background-color: #660A11">Oui</button>
+                            </form>
+                            </div>
+                        </div>     
+                    </div>
+               
+                </div>
+
+                <div class="modal fade " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog " role="document">
+                    <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Supression alerte ?</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            </div>
+                            <div class="modal-body">
+                            <h6>Etes vous sur de vouloir suprimer votre avatar ?</h6>
+                            <p>L'avatar par défaut sera alors attribuer à votre user...</p>
+                        
+                            </div>
+                            <div class="modal-footer">
+                            
+                            <form method="post" action="{{route('compte.destroyavatar')}}" >
+                        
+                                {{csrf_field()}}
+                                <button class="btn text-white"   style="opacity: 0.90;background-color: #660A11">Oui</button>
+                            </form>
+                            </div>
+                        </div>     
+                    </div>
+               
+                </div>
+
+
         </div>
     </div>
 </div>

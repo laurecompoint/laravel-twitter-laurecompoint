@@ -125,6 +125,7 @@ class AccountController extends Controller
         $user = User::find(Auth::user()->id);
         $user->delete();
         //return redirect('home/dashboard');
-        return redirect('twitter');
+        //return redirect('twitter');
+        return redirect()->route('login')->with('alertdeleteuser', "Votre compte à bien été suprime" );
     }
 }

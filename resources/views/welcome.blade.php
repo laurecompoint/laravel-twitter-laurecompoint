@@ -47,11 +47,7 @@
             <div class="left"></div>
             <div class="right d-flex justify-content-center align-items-center">
                 <div class="container d-flex flex-column justify-content-center align-items-center">
-                @if (session('alertdeleteuser'))
-                <div class="alert alert-success  h-100 col-12">
-                    {{ session('alertdeleteuser') }}
-                </div>
-                @endif
+              
                     <h1 class="title text-center">Welcome</h1>
                     @if (Route::has('login'))
                     <div>                       

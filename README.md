@@ -3,9 +3,11 @@
 <p align="center">
    
 </p>
-<h4>Creation Projet avec laravel </h4>
-<a href="https://travis-ci.org/laravel/framework"> 
-<img align="center" src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" alt="Build Status" width="100"></a>
+<h4>Creation Projet avec laravel  <a href="https://travis-ci.org/laravel/framework"> 
+<img align="center" src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" alt="Build Status" width="100"></a></h4>
+<p>Creation du projet avec la commande : new laravel non du projet -auth </p>
+
+
 <h4>Creation de la base de donnée</h4>
 <h4>Migration - Seeder</h4>
 <h4>Interface</h4>

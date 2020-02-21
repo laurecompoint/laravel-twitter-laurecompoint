@@ -16,7 +16,7 @@
                             <label for="name" class="ml-3 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-12">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name"  value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -59,7 +59,7 @@
 
                             <div class="col-md-12">
                                
-                                <input id="password" type="password" class="form-control  @error('password')  is-invalid @enderror" name="password" required autocomplete="new-password">
+                                <input id="password" type="password" class="form-control  @error('password')  is-invalid @enderror" name="password" required  autocomplete="new-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -67,7 +67,7 @@
                                 @enderror
                                 <button class="buttonpassword" type="button" onclick="iconpassword()"
                                     ><i class='fas fa-eye' id="icon-password" style='font-size:18px;color:#17a2b8;'></i></button>
-                                <div id="icon-vuelogin" onclick="iconpassword()"><i class='fas fa-eye-slash' style='font-size:18px;color:#17a2b8;'></i></div>
+                                <div id="icon-vuelogin" class="icon-vueregister" onclick="iconpassword()"><i class='fas fa-eye-slash' style='font-size:18px;color:#17a2b8;'></i></div>
                               
                             </div>
                         </div>

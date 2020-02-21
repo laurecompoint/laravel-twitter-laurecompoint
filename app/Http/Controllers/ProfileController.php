@@ -37,7 +37,7 @@ class ProfileController extends Controller
                 ]);
         }
        else{
-        return view('error/error');
+        return view('welcome');
        }
         
      
@@ -71,7 +71,7 @@ class ProfileController extends Controller
             ]);
     }
     else{
-        return view('error/error');
+        return view('welcome');
        }
     
 }
@@ -105,7 +105,7 @@ public function followers($username, User $user)
             ]);
     }
     else{
-        return view('error/error');
+        return view('welcome');
     }
     
 }

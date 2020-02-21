@@ -21,7 +21,7 @@
                  @foreach($usersall as $user)
                     <div class="col-12 mt-3">
             
-                    <a href="{{$user->username}}">
+                    <a href="/{{$user->username}}">
                        <button type="button" class="btn btn-info text-white col-12">{{$user->username}}</button>
                        </a>
                     </div>

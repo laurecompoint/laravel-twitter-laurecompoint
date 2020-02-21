@@ -23,7 +23,7 @@
                  @foreach($usersall as $user)
                     <div class="col-12 mt-3">
             
-                    <a href="{{$user->username}}">
+                    <a href="/{{$user->username}}">
                        <button type="button" class="btn btn-info text-white col-12">{{$user->username}}</button>
                        </a>
                     </div>
@@ -45,7 +45,7 @@
                     <div class="bg-white border  mt-2 w-25 ml-2" style="height: 150px;  background: url('/img/{{ $followers->avatar }}') no-repeat;  background-size: cover;  border-radius: 22px #665A5C;box-shadow: 4px 2px 4px #665A5C;">
                     <div class="row">
                         <a href="{{ url('/' . $followers->username) }}" class="text-info col-6">
-                            <h4 class="list-group-item-heading">{{ $followers->tweet }}</h4>
+                            <h4 class="list-group-item-heading">{{ $followers->name }}</h4>
                             <small class="list-group-item-text">@ {{ $followers->username }}</small>
                           
                         </a>

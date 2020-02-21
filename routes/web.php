@@ -29,10 +29,10 @@ Route::post('compteuser-avatar', 'AccountController@destroyavatar')->middleware(
 Route::post('delete/{id}', 'PostController@destroy')->name('{id}')->middleware('auth');
 
 Route::post('/add-posts', 'PostController@create')->name('posts.create')->middleware('auth');
-Route::get('/{username}/following', 'ProfileController@following')->name('following')->middleware('auth');
+Route::get('/{username}/following', 'ProfileController@following')->name('following');
 Route::get('/follows/{username}', 'UserController@follows')->middleware('auth');
 Route::get('/unfollows/{username}', 'UserController@unfollows')->middleware('auth');
 
-Route::get('/{username}', 'ProfileController@show')->name('profile')->middleware('auth');
-Route::get('/{username}/followers', 'ProfileController@followers')->name('followers')->middleware('auth');
+Route::get('/{username}', 'ProfileController@show')->name('profile');
+Route::get('/{username}/followers', 'ProfileController@followers')->name('followers');
 

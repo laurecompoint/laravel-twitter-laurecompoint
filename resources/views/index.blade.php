@@ -11,17 +11,11 @@ function moretweet()
     var page2 = 2;
     var url2 = '/twitter' + (page2 > 1 ? '?page=' + page2 : '');
     document.location.href= " " + url2; 
+
+    
+  
   }
-  if (CheminComplet = url2) {
-    var page2 = 3;
-    var url2 = '/twitter' + (page2 > 2 ? '?page=' + page2 : '');
-    document.location.href= " " + url2; 
-  }
-  if (CheminComplet = url2) {
-    var page2 = 4;
-    var url2 = '/twitter' + (page2 > 3 ? '?page=' + page2 : '');
-    document.location.href= " " + url2; 
-  }
+ 
   
 }
 

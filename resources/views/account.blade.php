@@ -10,9 +10,9 @@
             <div class="card">
                 <div class="card-header bg-info text-white"> 
                 <div class="row">
-                <h2>{{ $user->name }}'s Account</h2>
-                <button type="button" class="btn btn-danger"  style="opacity: 0.90; margin-left: 150px" data-toggle="modal" data-target="#exampleModal2">
-                 Suprimer votre compte
+                <h2 class="col-11">{{ $user->name }} Account</h2>
+                <button type="button" class="btn btn-danger text-center col-1"  style="opacity: 0.90;" data-toggle="modal" data-target="#exampleModal2">
+                 <i class="fa fa-user-times" style="font-size:18px;color:white"></i>
                 </button>
                 </div>
                
@@ -105,7 +105,7 @@
                     <div class="modal-dialog " role="document">
                     <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Supression alerte ?</h5>
+                            <h5 class="modal-title text-danger" id="exampleModalLabel">Supression alerte </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -131,7 +131,7 @@
                     <div class="modal-dialog " role="document">
                     <div class="modal-content">
                             <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Supression alerte ?</h5>
+                            <h5 class="modal-title text-danger" id="exampleModalLabel">Supression alerte</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>

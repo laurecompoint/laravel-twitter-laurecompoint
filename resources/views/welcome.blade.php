@@ -35,7 +35,7 @@
             html, body { font-family: 'Nunito', sans-serif; font-weight: 200; margin: 0; box-sizing: border-box; }
             section { position: relative; height: 100vh; width: 100%; }
             .left, .right { width: 50%; }
-            .left { background: url('img/twiter.jpg') no-repeat;  background-size: cover; background-position: center; }
+            .left { background: url('/img/twiter.jpg') no-repeat;  background-size: cover; background-position: center; }
             img { width: 100%; }
             input { border:none; border-bottom: 1px solid #999; width: 50%;}
             span { font-weight: 600; }
@@ -71,7 +71,7 @@
                     @endauth
                     </div>
                     @endif
-                    <img src="img/tweet.png" alt="tweet" />
+                    <img src="/img/tweet.png" alt="tweet" />
                 </div>
                 <footer>2020 - Laure Compoint</footer>
             </div>

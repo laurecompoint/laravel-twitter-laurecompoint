@@ -11,10 +11,11 @@
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <div class="row">
+                        <div class="form-group col-6">
+                            <label for="name" class="ml-3 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
@@ -25,10 +26,10 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group col-6">
                             <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Username') }}</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" autofocus>
 
                                 @error('username')
@@ -38,11 +39,11 @@
                                 @enderror
                             </div>
                         </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="ml-3 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
 
                                 @error('email')
@@ -53,34 +54,36 @@
                             </div>
                         </div>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                        <div class="form-group">
+                            <label for="password" class="ml-3 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                <button class="buttonpassword" type="button" onclick="iconpassword()"
-                                    ><i class='fas fa-eye' id="icon-password" style='font-size:18px;color:#17a2b8;'></i></button>
-                                <div id="icon-vuelogin" onclick="iconpassword()"><i class='fas fa-eye-slash' style='font-size:18px;color:#17a2b8;'></i></div>
+                            <div class="col-md-12">
+                               
+                                <input id="password" type="password" class="form-control  @error('password')  is-invalid @enderror" name="password" required autocomplete="new-password">
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                <button class="buttonpassword" type="button" onclick="iconpassword()"
+                                    ><i class='fas fa-eye' id="icon-password" style='font-size:18px;color:#17a2b8;'></i></button>
+                                <div id="icon-vuelogin" onclick="iconpassword()"><i class='fas fa-eye-slash' style='font-size:18px;color:#17a2b8;'></i></div>
+                              
                             </div>
                         </div>
 
-                        <div class="form-group row">
+                        <div class="form-group">
                            
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                            <label for="password-confirm" class="ml-3 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
                           
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                               
                             </div>
                         </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group float-left">
+                            <div class="col-md-4 rmr-5" style="">
                                 <button type="submit" class="btn btn-info">
                                     {{ __('Register') }}
                                 </button>

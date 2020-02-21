@@ -12,6 +12,16 @@ function moretweet()
     var url2 = '/twitter' + (page2 > 1 ? '?page=' + page2 : '');
     document.location.href= " " + url2; 
   }
+  if (CheminComplet = url2) {
+    var page2 = 3;
+    var url2 = '/twitter' + (page2 > 2 ? '?page=' + page2 : '');
+    document.location.href= " " + url2; 
+  }
+  if (CheminComplet = url2) {
+    var page2 = 4;
+    var url2 = '/twitter' + (page2 > 3 ? '?page=' + page2 : '');
+    document.location.href= " " + url2; 
+  }
   
 }
 
@@ -135,10 +145,12 @@ function moretweet()
  
   @endforelse
 
-  
+  @if ($user->timeline()->count() == 5)
   <a  onclick="moretweet()">
 <button type="summit" class="btn btn-info mt-3 col-12">Show More</button>
-</a>
+</a> @else
+
+@endif
 
 </div>
 

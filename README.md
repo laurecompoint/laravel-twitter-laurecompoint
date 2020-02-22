@@ -1,18 +1,28 @@
-<h3 align="center">Laravel Twitter</h3>
+<h1 align="center">Laravel Twitter</h1>
 
 <p align="center">
-   <img align="center" src="public/img/tweet.png" width="100">
+   <img align="center" src="public/img/tweet.png" width="600">
 </p>
 
-<h3>Etape du projet</h3>
+<h2>Etape du projet</h2>
 
 <h4>Creation Projet avec laravel  <a href="https://travis-ci.org/laravel/framework"> 
-<img align="center" src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" alt="Build Status" width="100"></a></h4>
+<img align="center" src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" alt="Build Status" width="150"></a></h4>
 <p>Creation du projet avec la commande : new laravel non du projet -auth </p>
 
 
-<h4>Creation de la base de donnée</h4>
-<p></p>
+<h4>Creation de la base de donnée
+
+
+<a href="https://travis-ci.org/laravel/framework"> 
+<img align="center" src="https://www.mamp.info/images/icons/mamp.png" alt="Build Status" width="40"></a>
+
+
+<a href="https://travis-ci.org/laravel/framework"> 
+<img align="center" src="https://c7.uihere.com/icons/210/340/991/mysql-5fba0f1cddb0c0db446ec9f49b1b5d31.png" alt="Build Status" width="40"></a>
+</h4>
+
+<p>Creation de la base avec mamp puis connexion à cette base de donnée depuis le fichier .env.</p>
 
 <h4>Migration - Seeder</h4>
 <p>Creation des différente migrations pour les tables de la base de donnée ( table posts, users, followers)</p>
@@ -29,10 +39,10 @@
 <p>Pour finir, la page profil, qui permet aus users de voir leur tweets, leur followers, leur following, mais aussi de pouvoir voir les page profil des autres users, et de les suivres pour avoir l'affichage de leur tweet dans la page tweet </p>
 
 
-<h3>Lancer le projet</h3>
+<h2>Lancer le projet</h2>
 
-<p>Cloner le repos</p>
-<p>Lancer les migration et seeder</p>
-<p>Lancer le serve avec la commande php artisa serve</p>
+<p># Cloner le repo</p>
+<p># Lancer les migrations et seeders</p>
+<p># Lancer le serve avec la commande php artisan serve</p>
 
 

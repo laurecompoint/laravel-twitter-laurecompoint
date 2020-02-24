@@ -2,25 +2,6 @@
 
 @section('content')
 
-<script type="text/javascript">
-function moretweet()
-{
-  var CheminComplet = document.location.href;
-  
-  if(CheminComplet = 'twitter'){
-    var page2 = 2;
-    var url2 = '/twitter' + (page2 > 1 ? '?page=' + page2 : '');
-    document.location.href= " " + url2; 
-
-    
-  
-  }
- 
-  
-}
-
-
-</script>
 <style>
   
   
@@ -140,11 +121,14 @@ function moretweet()
   @endforelse
 
   @if ($user->timeline()->count() == 5)
-  <a  onclick="moretweet()">
+  <form method="post" action="{{route('posts.store')}}">
+{{csrf_field()}}
 <button type="summit" class="btn btn-info mt-3 col-12">Show More</button>
-</a> @else
+</form> @else
 
 @endif
+
+
 
 </div>
 

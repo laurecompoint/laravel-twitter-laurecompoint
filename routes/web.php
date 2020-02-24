@@ -29,6 +29,9 @@ Route::post('compteuser-avatar', 'AccountController@destroyavatar')->middleware(
 Route::post('delete/{id}', 'PostController@destroy')->name('{id}')->middleware('auth');
 
 Route::post('/add-posts', 'PostController@create')->name('posts.create')->middleware('auth');
+
+Route::post('/url-page', 'PostController@store')->name('posts.store')->middleware('auth');
+
 Route::get('/{username}/following', 'ProfileController@following')->name('following');
 Route::get('/follows/{username}', 'UserController@follows')->middleware('auth');
 Route::get('/unfollows/{username}', 'UserController@unfollows')->middleware('auth');

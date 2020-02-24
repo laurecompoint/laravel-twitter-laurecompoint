@@ -59,6 +59,8 @@ class PostController extends Controller
 
             $post->save();
 
+            //user ce suit automiquement lors de la creation de son premier tweet, pour pouvoir afficher tout les tweets qu'il suis y compris les siens
+
             if( !$follower->where('user_id', Auth::user()->id)->update([  'user_id'  =>    Auth::user()->id, 'follower_user_id'  =>  Auth::user()->id ])){
                 $follower = new Follower;
                 $follower->follower_user_id = Auth::user()->id;
@@ -82,6 +84,22 @@ class PostController extends Controller
     public function store(Request $request)
     {
         //
+        $pageActuelle = url()->current();
+       
+        if($pageActuelle = 'twitter'){
+
+          
+           $newurl = '/twitter?page=2';
+           return redirect($newurl);
+        }
+        else{
+
+        }
+       
+
+    
+  
+  
     }
 
     /**

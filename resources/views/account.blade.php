@@ -60,17 +60,16 @@
                 <div class="row">
                     <div class="col-md-10 col-md-offset-1">
                         <img src="img/{{ $user->avatar }}" style="width:150px; height:150px; float:left; margin-right:25px;">
-                       
+                        @if (Auth::user()->avatar === 'avatar.png')
                             <label class="text-success">Update Profile Avatar : </label>
                             <input type="file" name="avatar" value="avatar.png">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
                            
-                            
-                            <button type="button" class="btn text-danger mt-2"  style="opacity: 0.90; margin-left: -15px" data-toggle="modal" data-target="#exampleModal">
+                        @else
+                        <button type="button" class="btn text-danger mt-2"  style="opacity: 0.90; margin-left: -15px" data-toggle="modal" data-target="#exampleModal">
                                 Suprimer votre avatar
-                             </button>
-                             
-                          
+                        </button>   
+                        @endif
                     </div>
                 </div>
                 <div class="row">
@@ -91,7 +90,7 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                    
-                    <input id="password" type="password" name="password" class="form-control">
+                    <input id="password" type="password" name="password"  class="form-control">
                     <button class="buttonpassword3" type="button" onclick="unmask()"
                                     title="Mask/Unmask password to check content"><i class='fas fa-eye' id="icon-password" style='font-size:18px;color:#17a2b8;'></i></button>
                                 <div id="icon-vue" onclick="unmask()"><i class='fas fa-eye-slash' style='font-size:18px;color:#17a2b8;'></i></div>

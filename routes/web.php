@@ -19,12 +19,12 @@ Route::get('/twitter', 'PostController@index');
 Route::get('/twitter-user', 'UserController@index');
 
 
-Route::get('account', 'AccountController@show')->name('profile.show');
-Route::post('account-update', 'AccountController@update')->middleware('auth')->name('account.update');
+Route::get('account', 'UserController@show')->name('profile.show');
+Route::post('account-update', 'UserController@update')->middleware('auth')->name('account.update');
 
-Route::post('compteuser', 'AccountController@destroy')->middleware('auth')->name('compte.destroyuser');
+Route::post('compteuser', 'UserController@destroy')->middleware('auth')->name('compte.destroyuser');
 
-Route::post('compteuser-avatar', 'AccountController@destroyavatar')->middleware('auth')->name('compte.destroyavatar');
+Route::post('compteuser-avatar', 'UserController@destroyavatar')->middleware('auth')->name('compte.destroyavatar');
 
 Route::post('delete/{id}', 'PostController@destroy')->name('{id}')->middleware('auth');
 

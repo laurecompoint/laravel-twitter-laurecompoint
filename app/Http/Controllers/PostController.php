@@ -22,16 +22,9 @@ class PostController extends Controller
        // $posts = $post->orderBy('id', 'DESC')->paginate(4);
         //dd($posts);
        
-        
-       
         if (Auth::check()) {
            
-            return view('index', [
-                'user' => Auth::user(),
-                
-                ]);
-
-               
+            return view('index', [ 'user' => Auth::user() ]);
         }
         else{
             return view('welcome');
@@ -70,7 +63,7 @@ class PostController extends Controller
                 $follower->where('user_id', Auth::user()->id)->update([  'user_id'  =>    Auth::user()->id, 'follower_user_id'  =>  Auth::user()->id ]);
             }
           
-           return redirect()->back()->with('alertcreate', "Le tweet  :   $post->tweet  à bien été crée" );
+           return redirect()->back()->with('alertcreate', 'Le tweet  : "$post->tweet" a bien été crée' );
         }
         
     }
@@ -95,10 +88,6 @@ class PostController extends Controller
         else{
 
         }
-       
-
-    
-  
   
     }
 
@@ -149,7 +138,7 @@ class PostController extends Controller
         if (Auth::check()) {
           
             $post->delete();
-            return redirect()->back()->with('alertdelete', "Le tweet  :   $post->name  à bien été suprimer" );
+            return redirect()->back()->with('alertdelete', 'Le tweet  :  " $post->name " a bien été suprimer' );
         }
        
     }

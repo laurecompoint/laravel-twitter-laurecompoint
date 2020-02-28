@@ -7,33 +7,35 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
+    //page user profil tweet ( + nav profile )
     public function show($username, User $user)
     {
         
         if (Auth::check()) {
             
             $me = Auth::user();
-            $userurl = User::where('username', $username)->firstOrFail();
-            $usersall = $user->orderBy('id', 'DESC')->paginate(4);
-            $followers_count = $userurl->followers()->count();
+            $userprofil = User::where('username', $username)->firstOrFail();
+
+            //nombre de tweet, followers et following
+            $followers_count = $userprofil->followers()->count();
             $following_count = $me->following()->count();
-            $following_tweet = $userurl->posts()->get()->count();
-            $list = $me->following()->orderBy('username')->get();
-            $is_edit_profile = false;
-            $is_following = false;
-            $is_edit_profile = (Auth::id() == $userurl->id);
-            $is_follow_button = !$is_edit_profile && !$me->isFollowing($userurl);
-            return view('profil', [
-                'userurl' => $userurl, 
+            $tweet_count = $userprofil->posts()->get()->count();
+            
+            $is_edit_profile = (Auth::id() == $userprofil->id);
+            $is_follow_button = !$is_edit_profile && !$me->isFollowing($userprofil);
+
+            //list user all
+            $usersall = $user->orderBy('id', 'DESC')->paginate(4);
+          
+          
+            return view('profil-users/profile-tweet', [
                 'followers_count' => $followers_count, 
-                'is_edit_profile' => $is_edit_profile, 
                 'following_count' => $following_count,
-                'following_tweet' => $following_tweet,
+                'tweet_count' => $tweet_count,
+                'is_edit_profile' => $is_edit_profile, 
                 'is_follow_button' => $is_follow_button,
-                'is_following' => $is_following,
-                 'list' => $list,
-                 'usersall' => $usersall,
-                 'me' => $me,
+                'userprofil' => $userprofil, 
+                'usersall' => $usersall,
                 ]);
         }
        else{
@@ -43,31 +45,32 @@ class ProfileController extends Controller
      
       
     }
-
-    public function following($username, User $user)
-{
+ //page user profil following  ( + nav profile )
+    public function following($username, User $user){
     if (Auth::check()) {
         $me = Auth::user();
-        $userurl = User::where('username', $username)->firstOrFail();
-        $usersall = $user->orderBy('id', 'DESC')->paginate(4);
-        $following_tweet = $userurl->posts()->get()->count();
-        $followers_count = $userurl->followers()->count();
+        $userprofil = User::where('username', $username)->firstOrFail();
+
+        $tweet_count = $userprofil->posts()->get()->count();
+        $followers_count = $userprofil->followers()->count();
         $following_count = $me->following()->count();
-        $list = $me->following()->orderBy('username')->get();
-        $is_edit_profile = false;
-        $is_following = false;
-        $is_edit_profile = (Auth::id() == $userurl->id);
-        $is_follow_button = !$is_edit_profile && !$me->isFollowing($userurl);
-        return view('following', [
-            'userurl' => $userurl,
+      
+        $is_edit_profile = (Auth::id() == $userprofil->id);
+        $is_follow_button = !$is_edit_profile && !$me->isFollowing($userprofil);
+
+        $usersall = $user->orderBy('id', 'DESC')->paginate(4);
+        //list des following
+        $listfollowing = $me->following()->orderBy('username')->get();
+      
+        return view('profil-users/following', [
             'followers_count' => $followers_count,
-            'is_edit_profile' => $is_edit_profile,
             'following_count' => $following_count,
-            'is_follow_button' => $is_follow_button,
-            'is_following' => $is_following,
-            'following_tweet' => $following_tweet,
-            'list' => $list,
+            'is_edit_profile' => $is_edit_profile,
+            'tweet_count' => $tweet_count,
+            'userprofil' => $userprofil,
             'usersall' => $usersall,
+            'is_follow_button' => $is_follow_button,
+            'listfollowing' => $listfollowing,
             ]);
     }
     else{
@@ -75,33 +78,36 @@ class ProfileController extends Controller
        }
     
 }
+//page user profil followers  ( + nav profile )
 public function followers($username, User $user)
 {
     
     if (Auth::check()) {
       
         $me = Auth::user();
-        $userurl = User::where('username', $username)->firstOrFail();
-        $usersall = $user->orderBy('id', 'DESC')->paginate(4);
-        $followers_count =  $userurl->followers()->count();
+        $userprofil = User::where('username', $username)->firstOrFail();
+
+        $followers_count =  $userprofil->followers()->count();
         $following_count = $me->following()->count();
-        $following_tweet = $userurl->posts()->get()->count();
-        $list = $userurl->followers()->orderBy('username')->get();
-        $is_edit_profile = false;
-        $is_following = false;
-        $is_edit_profile = (Auth::id() == $userurl->id);
-        $is_following = !$is_edit_profile && $me->isFollowing($userurl);
-        $is_follow_button = !$is_edit_profile && !$me->isFollowing($userurl);
-        return view('followers', [
-            'userurl' => $userurl,
+        $tweet_count = $userprofil->posts()->get()->count();
+       
+        $is_edit_profile = (Auth::id() == $userprofil->id);
+        $is_follow_button = !$is_edit_profile && !$me->isFollowing($userprofil);
+
+        $usersall = $user->orderBy('id', 'DESC')->paginate(4);
+        //list des followers
+        $listfollowers = $userprofil->followers()->orderBy('username')->get();
+
+        return view('profil-users/followers', [
+            'userprofil' => $userprofil,
             'followers_count' => $followers_count,
-            'is_edit_profile' => $is_edit_profile,
+            'tweet_count' => $tweet_count,
             'following_count' => $following_count,
-            'following_tweet' => $following_tweet,
-            'is_following' => $is_following,
+            'is_edit_profile' => $is_edit_profile,
             'is_follow_button' => $is_follow_button,
-            'list' => $list,
+            'listfollowers' =>  $listfollowers,
             'usersall' => $usersall,
+          
             ]);
     }
     else{

@@ -27,6 +27,7 @@ class User extends Authenticatable
          return $this->hasMany('App\Post', 'user_id', 'id');
     }
     public function timeline(){
+        
         $following = $this->following()->with(['posts' => function ($query) {
             $query->orderBy('id', 'desc'); 
             $query->paginate(5);
@@ -36,9 +37,6 @@ class User extends Authenticatable
             return $values->posts;
         });
     
-        $sorted = $timeline->sortByDesc(function ($post) {
-            return $post->created_at;
-        });
         return $timeline;
     }
     

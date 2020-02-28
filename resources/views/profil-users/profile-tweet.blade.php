@@ -57,7 +57,7 @@
             </div>
           
             @empty
-            <div class="mt-3 text-center border col-12 d-flex flex-column justify-content-center align-items-center align-content-center" style="  border-radius: 22px #665A5C;box-shadow: 4px -2px 4px #665A5C;">
+            <div class="mt-3 text-center border col-12 d-flex flex-column justify-content-center align-items-center align-content-center" style="  border-radius: 22px #665A5C;">
    
                  <h5 class="mt-5">No tweet</h5>
                  <img src="/img/notweet.png" class="w-50">

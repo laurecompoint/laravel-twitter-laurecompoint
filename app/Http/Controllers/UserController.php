@@ -36,14 +36,19 @@ public function show()
 //mise à jour du compte
 public function update(Request $request)
 {
+    if(!empty($request->password)){
+        $validate = $request->validate([
+            'password' => ['required', 'string', 'min:8'],
+            'name' => ['required', 'string', 'max:255'],
+            'username' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255'],
+            ]);
+    }
     $validate = $request->validate([
         'name' => ['required', 'string', 'max:255'],
         'username' => ['required', 'string', 'max:255'],
         'email' => ['required', 'string', 'email', 'max:255'],
-       
-
     ]);
-  
     $user = Auth::user();
     if($request->hasFile('avatar')){
         $avatar = $request->file('avatar');

@@ -52,18 +52,11 @@ class PostController extends Controller
 
             $post->save();
 
-            //user ce suit automiquement lors de la creation de son premier tweet, pour pouvoir afficher tout les tweets qu'il suis y compris les siens
-
-            if( !$follower->where('user_id', Auth::user()->id)->update([  'user_id'  =>    Auth::user()->id, 'follower_user_id'  =>  Auth::user()->id ])){
-                $follower = new Follower;
-                $follower->follower_user_id = Auth::user()->id;
-                $follower->user_id = Auth::user()->id;
-                $follower->save();
-            }else{
-                $follower->where('user_id', Auth::user()->id)->update([  'user_id'  =>    Auth::user()->id, 'follower_user_id'  =>  Auth::user()->id ]);
-            }
           
-           return redirect()->back()->with('alertcreate', 'Le tweet  : "$post->tweet" a bien été crée' );
+
+          
+          
+           return redirect()->back()->with('alertcreate', "Le tweet  : $post->tweet a bien été crée" );
         }
         
     }
@@ -138,7 +131,7 @@ class PostController extends Controller
         if (Auth::check()) {
           
             $post->delete();
-            return redirect()->back()->with('alertdelete', 'Le tweet  :  " $post->name " a bien été suprimer' );
+            return redirect()->back()->with('alertdelete', "Le tweet  :   $post->name  a bien été suprimer" );
         }
        
     }

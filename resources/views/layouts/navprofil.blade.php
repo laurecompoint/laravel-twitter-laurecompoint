@@ -100,8 +100,9 @@
         <div class="bg-info ">
         <nav class="m-auto row  d-flex justify-content-between" style="width: 82%; height: 70px">
 
-        <div class="col-2" >
+        <div class="col-2 mt-4" >
        
+            <a href="/twitter" class="text-white">Revenir au tweet</a>
        
         </div>
         

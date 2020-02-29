@@ -10,9 +10,6 @@
       <a href="twitter-user">
         <button type="button" class="btn btn-info text-white " style="width: 18rem;">Voir user que vous pouvez suivre</button>
       </a>
-                        
-
-
       <div class="card border-info mt-3" style="width: 18rem;">
         <div class="card-body">
         <form method="post" action="{{route('posts.create')}}">
@@ -43,27 +40,27 @@
           </div>
     @endif
 
-
-  @forelse ($user->timeline() as $tweet)
-  <div class="">
-  <div class="row mt-3" >
+    
+    @foreach ( $user->posts()->get() as $tweet  )
+    <div class="row mt-3 m-auto" >
 
       <div class="col-3">
 
-        <div class="border border-dark" style="height: 80px;" >
-          <img src="img/{{$tweet->user->avatar}}"  class="bg-black" style="width:99px; height:80px; float:left; margin-right:25px;"/>
-        </div>
+       
+          <img src="img/{{$tweet->user->avatar}}"  class="bg-black mt-4"  style="width:99px; height: 80px"/>
+       
 
       </div>
       
-      <div class="col-8">
+      <div class="col-8 mt-4">
             <p><a href="{{$tweet->user->username}}" class="text-dark"> {{$tweet->user->username}}</a> - {{$tweet->created_at->diffForHumans()}}</p> 
-            <p class="card-title text-justify">{{ $tweet->tweet }}</p> 
+            <p class="card-title">{{ $tweet->tweet }}</p> 
           
       </div>
      
-      <div class="col-1">
-      @if ($tweet->user->username === Auth::user()->username)
+    
+      <div class="col-1 mt-4">
+     
      
             <button type="button" class="btn text-white"  style="opacity: 0.90; margin-left: -40px" data-toggle="modal" data-target="#exampleModal{{ $tweet->id }}">
               <i class="material-icons" style="font-size:36px; color: #660A11">delete_forever</i>
@@ -93,46 +90,64 @@
                 </div>     
               </div>  
       </div>
-      @else
-
-      @endif
+     
+     
  
   </div>
-  
-</div>
-  </div>
-  
-  @empty
+  @endforeach
+    @forelse ($user->timeline() as $tweet  )
 
-  <div class="mt-3 text-center border col-12 d-flex flex-column justify-content-center align-items-center align-content-center" style="  border-radius: 22px #665A5C;">
+      <div class="row mt-3 m-auto" >
+
+          <div class="col-3">
+
+           
+              <img src="img/{{$tweet->user->avatar}}"  class="bg-black mt-5" style="width:99px; height: 80px"/>
+           
+
+          </div>
+          
+          <div class="col-9 mt-5">
+                <p><a href="{{$tweet->user->username}}" class="text-dark"> {{$tweet->user->username}}</a> - {{$tweet->created_at->diffForHumans()}}</p> 
+                <p class="card-title">{{ $tweet->tweet }}</p> 
+              
+          </div>
+        
+        
+    
+      </div>
+  
+
+  @empty
+  
+
+  <div class="mt-3 text-center col-12 d-flex flex-column justify-content-center align-items-center align-content-center">
    
-      <h5 class="mt-5">You dont have tweet...</h5>
+      <h5 class="mt-5">You dont have tweet of your following...</h5>
       <img src="/img/notweet.png" class="w-50">
 
   </div>
  
+  
   @endforelse
+
+  
+  
 
   @if ($user->timeline()->count() == 5)
   <form method="post" action="{{route('posts.store')}}">
-{{csrf_field()}}
-<button type="summit" class="btn btn-info mt-3 col-12">Show More</button>
-</form> @else
+  {{csrf_field()}}
+  <button type="summit" class="btn btn-info mt-3 col-12" style="width:485px">Show More</button>
+  </form> 
+  @else
 
-@endif
-
-
-
-
-
+  @endif
+  
 </div>
 
 </div>
 
 </div>
-
-
-
 </div>
 
 @endsection

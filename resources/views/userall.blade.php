@@ -16,9 +16,7 @@
                        <small class="list-group-item-text">@ {{$user->username}}</small>
                    </a>
               
-</div>                                  
-                   
-               
+</div>                                     
 @endforeach
                        
    

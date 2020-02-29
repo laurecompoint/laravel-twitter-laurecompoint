@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-
+use App\Post;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -9,37 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable 
 {
-    
-
-    public function following(){
-         return $this->belongsToMany('App\User', 'followers', 'follower_user_id', 'user_id')->withTimestamps();
-    }
-    public function isFollowing(User $user)
-    {
-        return !is_null($this->following()->where('user_id', $user->id)->first());
-    }
-    public function followers()
-    {
-         return $this->belongsToMany('App\User', 'followers', 'user_id', 'follower_user_id')->withTimestamps();
-    }
-    public function posts()
-    {
-         return $this->hasMany('App\Post', 'user_id', 'id');
-    }
-    public function timeline(){
-        
-        $following = $this->following()->with(['posts' => function ($query) {
-            $query->orderBy('id', 'desc'); 
-            $query->paginate(5);
-        }])->get();
-    
-        $timeline = $following->flatMap(function ($values) {
-            return $values->posts;
-        });
-    
-        return $timeline;
-    }
-    
+     
     use Notifiable;
 
     /**
@@ -69,5 +39,35 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
    
+    public function following(){
+        return $this->belongsToMany('App\User', 'followers', 'follower_user_id', 'user_id')->withTimestamps();
+   }
+   public function isFollowing(User $user)
+   {
+       return !is_null($this->following()->where('user_id', $user->id)->first());
+   }
+   public function followers()
+   {
+        return $this->belongsToMany('App\User', 'followers', 'user_id', 'follower_user_id')->withTimestamps();
+   }
+   public function posts()
+   {
+        return $this->hasMany('App\Post', 'user_id', 'id')->orderBy('id', 'desc');
+   }
+   public function timeline(){
+       
+       $following = $this->following()->with(['posts' => function ($query) {
+           $query->orderBy('id', 'desc'); 
+           $query->paginate(5);
+       }])->get();
+
+      
+   
+       $timeline = $following->flatMap(function ($values) {
+           return $values->posts;
+       });
+   
+       return $timeline;
+   }
 }
 

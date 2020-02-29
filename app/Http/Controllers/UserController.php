@@ -10,6 +10,7 @@ class UserController extends Controller
 {
 //page user all
 public function index(User $user){
+
     $usersall = $user->get();
     if (Auth::check()) {
         return view('/userall')->with([

@@ -18,7 +18,7 @@ class ProfileController extends Controller
 
            
             $followers_count = $userprofil->followers()->count();
-            $following_count = $me->following()->count();
+            $following_count = $userprofil->following()->count();
             $tweet_count = $userprofil->posts()->get()->count();
             
             $is_edit_profile = (Auth::id() == $userprofil->id);
@@ -53,14 +53,14 @@ class ProfileController extends Controller
 
         $tweet_count = $userprofil->posts()->get()->count();
         $followers_count = $userprofil->followers()->count();
-        $following_count = $me->following()->count();
+        $following_count = $userprofil->following()->count();
       
         $is_edit_profile = (Auth::id() == $userprofil->id);
         $is_follow_button = !$is_edit_profile && !$me->isFollowing($userprofil);
 
         $usersall = $user->orderBy('id', 'DESC')->paginate(4);
         
-        $listfollowing = $me->following()->orderBy('username')->get();
+        $listfollowing = $userprofil->following()->orderBy('username')->get();
       
         return view('profil-users/following', [
             'followers_count' => $followers_count,

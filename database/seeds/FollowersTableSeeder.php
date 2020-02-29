@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+use App\Follower;
 class FollowersTableSeeder extends Seeder
 {
     /**
@@ -11,13 +11,13 @@ class FollowersTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create('fr_FR');
+        
         for ($i = 1; $i < 6; $i++) {
-            $fallower = new Fallower;
-            $fallower->follower_user_id = 3;
-            $fallower->user_id = $i;
           
-            $fallower->save();
+            $followers = new Follower;
+            $fallowers->user_id = 1;
+            $fallowers->follower_user_id = 3;
+            $fallowers->save();
         }
     }
 }

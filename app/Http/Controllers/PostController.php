@@ -131,7 +131,7 @@ class PostController extends Controller
         if (Auth::check()) {
           
             $post->delete();
-            return redirect()->back()->with('alertdelete', "Le tweet  :   $post->name  a bien été suprimer" );
+            return redirect()->back()->with('alertdelete', "Le tweet  :   $post->tweet  a bien été suprimer" );
         }
        
     }

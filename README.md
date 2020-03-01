@@ -10,6 +10,7 @@
 <h4>Création Projet avec laravel  <a href="https://travis-ci.org/laravel/framework"> 
 <img align="center" src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" alt="Build Status" width="150"></a></h4>
 <p>Création du projet avec la commande : new laravel nom du projet -auth </p>
+<p>Le but de ce projet, était de reproduire tweeter en utilisant laravel</p>
 
 
 <h4>Création de la base de donnée

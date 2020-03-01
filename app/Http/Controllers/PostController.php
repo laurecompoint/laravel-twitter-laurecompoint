@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
 use App\Post;
-use App\Follower;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -38,18 +37,19 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Post $post, Follower $follower , Request $request)
+    public function create(Post $post, Request $request)
     {
         $validate = $request->validate([
             'tweet' => 'required',
         
         ]);
-        $post = new Post;
-        $post->tweet = $request->tweet;
-        $post->user_id = $request->user_id;
+        
 
         if (Auth::check()) {
 
+            $post = new Post;
+            $post->tweet = $request->tweet;
+            $post->user_id = $request->user_id;
             $post->save();
 
           

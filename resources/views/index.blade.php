@@ -75,7 +75,7 @@
                       </button>
                     </div>
                     <div class="modal-body">
-                    <h6>Etes vous sur de vouloir suprimer ce tweet : " {{$tweet->tweet}} " ?</h6>
+                    <h6>Etês vous sur de vouloir supprimer ce tweet : " {{$tweet->tweet}} " ?</h6>
 
                     </div>
                     <div class="modal-footer">

@@ -110,7 +110,7 @@
                             </button>
                             </div>
                             <div class="modal-body">
-                            <h6>Etes vous sur de vouloir suprimer votre compte ?</h6>
+                            <h6>Etês vous sur de vouloir supprimer votre compte ?</h6>
                         
                             </div>
                             <div class="modal-footer">
@@ -136,8 +136,8 @@
                             </button>
                             </div>
                             <div class="modal-body">
-                            <h6>Etes vous sur de vouloir suprimer votre avatar ?</h6>
-                            <p>L'avatar par défaut sera alors attribuer à votre user...</p>
+                            <h6>Etês vous sur de vouloir supprimer votre avatar ?</h6>
+                            <p>L'avatar par défaut sera alors attribué à votre user...</p>
                         
                             </div>
                             <div class="modal-footer">
